@@ -60,3 +60,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@Composable
+fun MainScreen(navController: NavController) {
+
+
+}
+
+
