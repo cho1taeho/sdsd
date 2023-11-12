@@ -95,7 +95,7 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.kakao.sdk:v2-user:2.16.0") // 카카오 로그인
+
     implementation("androidx.work:work-runtime-ktx:2.8.0")
 
     // Base64

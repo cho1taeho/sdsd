@@ -20,9 +20,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -43,6 +45,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -63,6 +66,47 @@ import javax.inject.Inject
 @Composable
 fun MainScreen(navController: NavController) {
 
+    var companyName by remember{mutableStateOf("")}
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Text(
+            text = "속닥속닥",
+            color = Color.Black,
+            fontSize = 22.sp,
+            fontWeight = FontWeight.Bold
+        )
+        Text(
+            text = " 알고싶은 정보를 솔직하게",
+            color = Color.Black,
+            fontSize = 14.sp
+        )
+        TextField(
+            value = companyName,
+            onValueChange = { newValue ->
+                companyName = newValue
+            },
+            keyboardOptions = KeyboardOptions.Default.copy(
+                keyboardType = KeyboardType.Text
+            ),
+            label = {Text("기업이름을 입력해주세요")},
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Color.White),
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Text(
+            text = "혹시 찾으시는 기업이 없으신가요?",
+            color = Color.Gray,
+            fontSize = 10.sp
+        )
+
+    }
 
 }
 

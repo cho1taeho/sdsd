@@ -44,6 +44,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.myapplication.R
 import com.example.myapplication.navigate.AppNavigation
+
 //import com.example.myapplication.screens.BottomNavItem
 //import com.example.myapplication.workers.NotificationWorker
 
@@ -58,6 +59,17 @@ fun AppMainContent(navController: NavHostController) {
 @RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun MyUI() {
+    val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
 
-
+//    Scaffold(
+//        bottomBar = {
+//            NavigationBar {
+//
+//            }
+//        }
+//    ){
+//
+//    }
 }
