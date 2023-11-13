@@ -14,9 +14,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.myapplication.AirbankApplication
+import com.example.myapplication.SokdakApplication
+import com.example.myapplication.screens.BottomNavItem
 import com.example.myapplication.screens.CompanyRegistration
+import com.example.myapplication.screens.EnterpriseChatScreen
 import com.example.myapplication.screens.MainScreen
+import com.example.myapplication.screens.MyChatScreen
+import com.example.myapplication.screens.MyPageScreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -24,14 +28,22 @@ import kotlinx.coroutines.withContext
 @Composable
 fun AppNavigation(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "main") {
-        composable("main") {
+        composable(BottomNavItem.Main.screenRoute) {
             MainScreen(navController = navController)
         }
-
-        composable("companyRegisteration"){
+        composable(BottomNavItem.MyPage.screenRoute){
+            MyPageScreen(navController = navController)
+        }
+        composable(BottomNavItem.MyChat.screenRoute){
+            MyChatScreen(navController = navController)
+        }
+        composable(BottomNavItem.EnterpriseChat.screenRoute){
+            EnterpriseChatScreen(navController = navController)
+        }
+        composable(BottomNavItem.CompanyRegistration.screenRoute){
             CompanyRegistration(navController = navController)
         }
-
+            
     }
 
 

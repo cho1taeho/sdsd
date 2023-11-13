@@ -23,8 +23,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -56,74 +56,21 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+
 import com.example.myapplication.R
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @Composable
-fun MainScreen(navController: NavController){
-    var componyName by remember { mutableStateOf("")}
+fun MyChatScreen(navController: NavController){
 
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF8F4E8))
+
     ){
-        Spacer(modifier = Modifier.size(60.dp))
-
-        Image(
-            painter = painterResource(id = R.drawable.sokdak),
-            contentDescription = null,
-            modifier = Modifier
-                .size(150.dp)
-
-        )
-        Text(
-            "속닥속닥",
-            fontSize = 25.sp
-        )
-        Spacer(modifier = Modifier.size(6.dp))
-        Text(
-            "알고싶은 정보를 솔직하게",
-            fontSize = 12.sp
-        )
-        Spacer(modifier= Modifier.size(8.dp))
-        OutlinedTextField(
-            value = componyName,
-            onValueChange = {newValue ->
-                componyName = newValue
-
-            },
-            label = {
-                Text(
-                    "기업 이름을 입력해 주세요",
-                    fontSize = 14.sp
-                )
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text
-            ),
-            modifier = Modifier
-                .width(250.dp)
-                .height(55.dp)
-                .clip(RoundedCornerShape(4.dp)),
-            textStyle = TextStyle(
-                color = Color.Black,
-                fontSize = 10.sp
-            ),
-            singleLine = true
-        )
-        Spacer(modifier = Modifier.size(8.dp))
-        Text(
-            "혹시 찾으시는 기업이 없나요?",
-            fontSize = 10.sp,
-            color = Color.Gray,
-            modifier = Modifier
-                .clickable {
-                    navController.navigate("companyRegisteration")
-                }
-        )
+        Text(text = "내 채팅")
     }
+
+
 }

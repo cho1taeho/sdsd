@@ -60,7 +60,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.example.myapplication.AirbankApplication
+import com.example.myapplication.SokdakApplication
 import com.example.myapplication.R
 
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -90,6 +90,7 @@ fun EnterpriseChatScreen(navController: NavController){
 //            Image(
 //
 //            )
+            Text(text = "회사채팅")
         }
     }
 

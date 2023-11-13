@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -60,30 +61,54 @@ fun MyUI() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    var title by remember {mutableStateOf("")}
+//    var title by remember {mutableStateOf("")}
 
     Scaffold(
-        bottomBar = {
-            NavigationBar(
-                containerColor = Color.White,
-                content = {
-                    val items = listOf(
-                        "Home", "FreeChat", "MyChat", "Mypage"
-                    )
-                    items.forEach{item ->
-                        NavigationBarItem(
-                            label = { Text(item)},
-                            selected = false,
-                            onClick = {
-
-                            }
-
-                        )
-                    }
-                }
-            )
+       bottomBar = {
+           NavigationBar{
+               val items = listOf(
+                   BottomNavItem.Main,
+                   BottomNavItem.EnterpriseChat,
+                   BottomNavItem.MyChat,
+                   BottomNavItem.MyPage
+               )
+               items.forEach {item ->
+                   NavigationBarItem(
+                       icon = { Spacer(modifier = Modifier.size(0.dp)) },
+                       label = {
+                           Text(
+                               item.title,
+                               color = if (currentRoute == item.screenRoute) {
+                                   Color.Black
+                               } else {
+                                   Color.Gray
+                               }
+                           )
+                       },
+                       selected = currentRoute == item.screenRoute,
+                       onClick = {
+                           navController.navigate(item.screenRoute){
+                               navController.graph.startDestinationRoute?.let {
+                                   popUpTo(it) {saveState = true}
+                               }
+                           }
+                       },
+                       alwaysShowLabel = true
+                   )
+               }
+           }
+       }
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(it)
+                .background(Color(0xFFF8F4E8))
+            , horizontalArrangement = Arrangement.Center
+            , verticalAlignment = Alignment.CenterVertically
+        ) {
+            com.example.myapplication.layout.AppMainContent(navController = navController)
         }
-    )
+    }
 }
 
 
