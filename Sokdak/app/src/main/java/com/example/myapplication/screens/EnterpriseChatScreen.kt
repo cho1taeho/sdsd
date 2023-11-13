@@ -87,9 +87,9 @@ fun EnterpriseChatScreen(navController: NavController){
             modifier = Modifier
                 .fillMaxWidth()
         ){
-            Image(
-
-            )
+//            Image(
+//
+//            )
         }
     }
 

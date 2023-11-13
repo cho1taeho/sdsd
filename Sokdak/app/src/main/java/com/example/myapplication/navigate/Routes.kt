@@ -15,12 +15,24 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.myapplication.AirbankApplication
+import com.example.myapplication.screens.CompanyRegistration
+import com.example.myapplication.screens.MainScreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 @RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun AppNavigation(navController: NavHostController) {
+    NavHost(navController = navController, startDestination = "main") {
+        composable("main") {
+            MainScreen(navController = navController)
+        }
+
+        composable("companyRegisteration"){
+            CompanyRegistration(navController = navController)
+        }
+
+    }
 
 
 }
