@@ -40,7 +40,7 @@ fun AppNavigation(navController: NavHostController) {
         composable(BottomNavItem.EnterpriseChat.screenRoute){
             EnterpriseChatScreen(navController = navController)
         }
-        composable(BottomNavItem.CompanyRegistration.screenRoute){
+        composable("companyRegisteration"){
             CompanyRegistration(navController = navController)
         }
             

@@ -63,7 +63,7 @@ import javax.inject.Inject
 
 @Composable
 fun MainScreen(navController: NavController){
-    var componyName by remember { mutableStateOf("")}
+    var companyName by remember { mutableStateOf("")}
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -91,9 +91,9 @@ fun MainScreen(navController: NavController){
         )
         Spacer(modifier= Modifier.size(8.dp))
         OutlinedTextField(
-            value = componyName,
+            value = companyName,
             onValueChange = {newValue ->
-                componyName = newValue
+                companyName = newValue
 
             },
             label = {
@@ -111,7 +111,7 @@ fun MainScreen(navController: NavController){
                 .clip(RoundedCornerShape(4.dp)),
             textStyle = TextStyle(
                 color = Color.Black,
-                fontSize = 10.sp
+                fontSize = 14.sp
             ),
             singleLine = true
         )
