@@ -48,6 +48,9 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/spring.*"
+            excludes += "/META-INF/spring-configuration-metadata.json"
+            excludes += "/META-INF/*"
         }
     }
 }
@@ -101,6 +104,9 @@ dependencies {
     // Base64
     implementation("androidx.compose.ui:ui:1.0.0")
     implementation("androidx.compose.ui:ui-tooling:1.0.0")
+
+    implementation("org.springframework.boot:spring-boot-starter-web:2.6.0")
+    implementation("org.springframework.boot:spring-boot-starter-websocket:2.6.0")
 }
 
 kapt {

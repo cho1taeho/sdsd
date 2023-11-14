@@ -56,7 +56,7 @@ data class AuthRefreshRequest(
     val Authoriztion : String
 )
 
-data class AuthResfreshResponse(
+data class AuthRefreshResponse(
     val message: String
 )
 
